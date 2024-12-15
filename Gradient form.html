@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Form Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input, select, textarea, button {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background: #333;
+            color: #fff;
+        }
+
+        button {
+            background: #4a90e2;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        .radio-group label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lab report and Assignment Cover page maker</h1>
+        <form id="myForm">
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </div>
+                
+                <label for="options">Select an option:</label>
+                <select id="options" name="options" required>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+
+                <label>List of Interests:</label>
+                <ul>
+                    <li>Interest 1</li>
+                    <li>Interest 2</li>
+                    <li>Interest 3</li>
+                </ul>
+
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const options = document.getElementById('options').value;
+            const comment = document.getElementById('comment').value;
+            
+            alert(`Form submitted!\n\nName: ${name}\nEmail: ${email}\nGender: ${gender}\nOption: ${options}\nComment: ${comment}`);
+        });
+    </script>
+</body>
+</html>
